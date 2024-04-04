@@ -2,7 +2,6 @@
 GET http://localhost:5000/
 content-type: application/json
 
-### add test check if SERVER is running with /api route
 POST http://localhost:5000/new-class
 content-type: application/json
 
