@@ -1,21 +1,3 @@
 ### test check if SERVER is running
 GET http://localhost:5000/
 content-type: application/json
-
-POST http://localhost:5000/new-class
-content-type: application/json
-
-{
-    "name": "Basic Computer Skills",
-    "image": "https://speccon.co.za/wp-content/uploads/2023/10/Computer-Skills-1-1024x1024.png",
-    "availableSeats": 781,
-    "price": "70",
-    "videoLink": "https://www.youtube.com/results?search_query=Basic+Computer+Skills",
-    "description": "This course explains what computer is and what it does, looking at the different elements of a computer, including the hardware and software components. You will learn the basic functions of a computer, how to hold and operate a mouse and a keyboard, how to open and close programs and documents, and many more exciting features.",
-    "instructorName": "Watson T.",
-    "instructorEmail": "watson@taylor.com",
-    "status": "approved",
-    "submitted": "2024-02-28T20:01:12.168Z",
-    "totalEnrolled": 9,
-    "reason": null
-}
