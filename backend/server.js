@@ -4,6 +4,7 @@ const app = express();
 const cors = require('cors');
 const connect = require("./db/connect");
 const { mockCoursesTest } = require('./controller/mockCoursesTest');
+const courseRoute = require('./routes/courses');
 
 
 const port = process.env.PORT || 8000;
@@ -15,8 +16,17 @@ app.use(express.json());
 
 app.use("/api/v1/addTesting", mockCoursesTest);
 
+//use my router
+app.use("/api/courses", courseRoute);
+
 app.get('/', (req, res) => {
-    res.send("Server is running...");
+    res.send("Node API Server Updated");
+});
+
+//classes routes here
+app.post('/new-class', (req, res) => {
+    console.log(req.body);
+    res.send(req.body);
 });
 
 

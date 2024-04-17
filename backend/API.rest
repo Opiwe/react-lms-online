@@ -1,3 +1,7 @@
-### test check if SERVER is running
+### test my server
 GET http://localhost:5000/
 content-type: application/json
+
+### get all courses
+GET http://localhost:5000/api/courses
+
