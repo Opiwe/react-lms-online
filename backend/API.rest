@@ -2,6 +2,10 @@
 GET http://localhost:5000/
 content-type: application/json
 
+############# ADD TESTING PRODUCTS ##############
+GET http://localhost:5000/api/v1/addTesting
+content-type: application/json
+
 ### get all courses
 GET http://localhost:5000/api/courses
 

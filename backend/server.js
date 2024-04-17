@@ -23,13 +23,6 @@ app.get('/', (req, res) => {
     res.send("Node API Server Updated");
 });
 
-//classes routes here
-app.post('/new-class', (req, res) => {
-    console.log(req.body);
-    res.send(req.body);
-});
-
-
 const startMyServer = async () => {
     try {
         //connect to DB function
