@@ -1,44 +1,28 @@
-require("dotenv").config();
+require('dotenv').config();
 const express = require('express');
-const app = express();
 const cors = require('cors');
-const connect = require("./db/connect");
-const { mockCoursesTest } = require('./controller/mockCoursesTest');
-const courseRoute = require('./routes/courses');
+const app = express();
+const connect = require('./config/connect');
+const courses = require('./routes/courseRoutes');
+const addTestingCourses = require('./config/mockCoursesTest');
 
+
+connect(); // Connect to MongoDB.
 
 const port = process.env.PORT || 8000;
 
-//middleware
+
 app.use(cors());
 app.use(express.json());
 
+app.use('/api/courses', courses);
 
-app.use("/api/v1/addTesting", mockCoursesTest);
-
-//use my router
-app.use("/api/courses", courseRoute);
+app.use('/addTesting', addTestingCourses);
 
 app.get('/', (req, res) => {
-    res.send("Node API Server Updated");
+    res.status(200).json({message: 'API server updated'});
 });
 
-const startMyServer = async () => {
-    try {
-        //connect to DB function
-        await connect();
-
-        //start the server
-        app.listen(port, (req, res) => {
-            console.log(`Server is running at http://localhost:${port}`);
-        });
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-//call the function that the connect to the DB and start server
-startMyServer();
-
-
-
+app.listen(port, () => {
+    console.log(`Server running on port at http://localhost:${port}`);
+})

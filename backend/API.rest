@@ -1,11 +1,8 @@
 ### test my server
-GET http://localhost:5000/
-content-type: application/json
+GET http://localhost:5000
 
-############# ADD TESTING PRODUCTS ##############
-GET http://localhost:5000/api/v1/addTesting
-content-type: application/json
+### add testing courses
+GET http://localhost:5000/addTesting
 
 ### get all courses
 GET http://localhost:5000/api/courses
-

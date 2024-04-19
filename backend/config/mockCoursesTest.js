@@ -1,11 +1,6 @@
-const Course = require('./mockCoursesTest');
+const Course = require('../model/courseModel');
 
-const mockCoursesTest = async (req, res) => {
-    await addTesting();
-    res.json({message: 'Successfully Added Testing Courses'});
-};
-
-const addTesting = async (req, res) => {
+const addTestingCourses = async (req, res) => {
     try {
         await Course.insertMany([
             {
@@ -92,10 +87,12 @@ const addTesting = async (req, res) => {
                 totalEnrolled: 0,
                 reason: null,
             },
-        ]);
+        ])
+
+        res.json({massage: 'Added testing courses'});
     } catch (error) {
         console.log(error);
     }
 }
 
-module.exports = {mockCoursesTest, addTesting};
+module.exports = addTestingCourses;
